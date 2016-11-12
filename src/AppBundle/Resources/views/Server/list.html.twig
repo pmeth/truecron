@@ -1,0 +1,26 @@
+{% extends '@App/template.html.twig' %}
+
+{% block body %}
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Server</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for server in servers %}
+            <tr>
+                <td>{{ server.name }}</td>
+                <td>{{ server.hostname }}</td>
+                <td>
+                    <a href="{{ path('edit_server', {'id': server.id}) }}" class="btn btn-default">Edit</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-default" href="{{ path("add_server") }}">Add Server</a>
+
+{% endblock %}
+

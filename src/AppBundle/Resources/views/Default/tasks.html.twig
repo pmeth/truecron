@@ -1,0 +1,19 @@
+{% extends '@App/template.html.twig' %}
+
+{% block body %}
+<table class="table">
+    <tbody>
+    {% for run in tasks %}
+    <tr>
+        <td>
+            {{ run.task.server.name }}
+        </td>
+        <td>{{ run.task.name }}</td>
+        <td>{{ run.runtime|date("r") }}</td>
+        <td><pre>{{ run.output }}</pre></td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
+

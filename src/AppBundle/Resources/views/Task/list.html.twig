@@ -1,0 +1,29 @@
+{% extends '@App/template.html.twig' %}
+
+{% block body %}
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Task</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for task in tasks %}
+            <tr>
+                <td>{{ task.name }}</td>
+                <td>{{ task.hour }}</td>
+                <td>{{ task.minute }}</td>
+                <td>{{ task.server.name }}</td>
+                <td>{{ task.task }}</td>
+                <td>
+                    <a href="{{ path('edit_task', {'id': task.id}) }}" class="btn btn-default">Edit</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-default" href="{{ path("add_task") }}">Add Task</a>
+
+{% endblock %}
+
